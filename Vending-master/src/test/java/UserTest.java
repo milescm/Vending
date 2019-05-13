@@ -48,4 +48,14 @@ class UserTest {
         user.change(drink.sodar.getPrice());
         assertThat(user.getMoney(),is(0));
     }
+
+    @Test
+    public void test_doublePick(){
+        User user = new User();
+        VendingMachine drink = new VendingMachine();
+        user.inputMoney(2000);
+        user.change(drink.coke.getPrice());
+        user.change(drink.sodar.getPrice());
+        assertThat(user.getMoney(),is(0));
+    }
 }
