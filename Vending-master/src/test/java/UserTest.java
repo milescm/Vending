@@ -40,5 +40,12 @@ class UserTest {
     assertThat(user.getMoney(), is(-500));
 }
 
-
+@Test(expected = IllegalArgumentException.class)
+    public void test_getDrink(){
+        User user = new User();
+        VendingMachine drink = new VendingMachine();
+        user.inputMoney(1000);
+        user.change(drink.sodar.getPrice());
+        assertThat(user.getMoney(),is(0));
+    }
 }
